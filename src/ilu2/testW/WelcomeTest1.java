@@ -22,5 +22,11 @@ class WelcomeTest1 {
 		nom="    ";
 		assertEquals(Welcome.welcome(nom),"Hello,my friend");
 		}
+	
+	@Test
+	void welcometest3() {
+		String nom="JERRY";
+		assertEquals(Welcome.welcome(nom),"Hello,JERRY!");
+	}
 	}
 
