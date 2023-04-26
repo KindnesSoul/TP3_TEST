@@ -34,5 +34,10 @@ class WelcomeTest1 {
 		String nom="amy,bob";
 		assertEquals(Welcome.welcome(nom),"Hello,Amy,Bob");
 	}
+	@Test
+	void welcometest5() {
+		String nom="amy,bob,jerry";
+		assertEquals(Welcome.welcome(nom),"Hello,Amy,Bob,Jerry");
+	}
 	}
 
