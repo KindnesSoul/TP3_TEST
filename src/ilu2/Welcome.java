@@ -8,9 +8,9 @@ public class Welcome {
 		if(input==null){return "Hello,my friend";}
 		input=input.trim(); 
 		if(input==""){return "Hello,my friend";}
-		if (MajEquals(input)){return("Hello,"+input+"!");}
 		String[] word=input.split(",");
-		if (word.length==2) {return ("Hello,"+Maj(word[0])+" and "+Maj(word[1]));}
+		if (MajEquals(input)&&word.length==1){return("Hello,"+input+"!");}
+		if (word.length==2) {return ("Hello,"+Maj(word[0]).trim()+" and "+Maj(word[1]).trim());}
 		if (word.length>2) {return(StrNom(word));}
 		return("Hello,"+Maj(input));
 	}
@@ -21,14 +21,14 @@ public class Welcome {
 		String input="";
 		String Majinput="";
 		List<String> wordMinuscule=TrieMin(word),wordMajuscule=TrieMaj(word);
-		if (wordMajuscule.size()>0) {Majinput=".AND HELLO";}
+		if ((wordMajuscule.size()>0)&&(wordMinuscule.size()!=0)) {Majinput=".AND HELLO";}
 		for ( int i=0;i<wordMajuscule.size();i++) {
-			if ((i==wordMajuscule.size()-1)&&(wordMajuscule.size()>1)) {Majinput=Majinput+" AND "+wordMajuscule.get(i)+"!";}
-			else{Majinput=Majinput+","+wordMajuscule.get(i);}}
+			if ((i==wordMajuscule.size()-1)&&(wordMajuscule.size()>1)) {Majinput=Majinput+" AND "+wordMajuscule.get(i).trim()+"!";}
+			else{Majinput=Majinput+","+wordMajuscule.get(i).trim();}}
 		for (int i=0;i<wordMinuscule.size();i++) {
-			if ((i==wordMinuscule.size()-1)&&(wordMinuscule.size()-1>0)) {input=input+" and "+Maj(wordMinuscule.get(i));}
-			else {input=input+","+Maj(wordMinuscule.get(i));}}
-		if (input==""){return "HELLO,"+Majinput;}
+			if ((i==wordMinuscule.size()-1)&&(wordMinuscule.size()-1>0)) {input=input+" and "+Maj(wordMinuscule.get(i).trim());}
+			else {input=input+","+Maj(wordMinuscule.get(i).trim());}}
+		if (input==""){return "HELLO"+Majinput;}
 		if(wordMajuscule.size()==1) {Majinput=Majinput+"!";}
 		return "Hello"+input+Majinput;
 	}
